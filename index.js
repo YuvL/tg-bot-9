@@ -3,23 +3,26 @@ const TelegramBaseController = Telegram.TelegramBaseController
 const TextCommand = Telegram.TextCommand
 const tg = new Telegram.Telegram(process.env.tg_api_key)
 
-class PingController extends TelegramBaseController {
+class GiftDialog {
+    getHelloMessage() {
+        return process.env._helloMessage;
+    }
+}
+
+class GiftController extends TelegramBaseController {
     /**
      * @param {Scope} $
      */
-    pingHandler($) {
-        $.sendMessage('pong')
+    startHandler($) {
+        $.sendMessage( new GiftDialog().getHelloMessage())
     }
 
     get routes() {
         return {
-            'pingCommand': 'pingHandler'
+            'startCommand': 'startHandler'
         }
     }
 }
 
 tg.router
-    .when(
-        new TextCommand('ping', 'pingCommand'),
-        new PingController()
-    )
+    .when(new TextCommand('start', 'startCommand'),  GiftController())
