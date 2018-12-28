@@ -23,7 +23,6 @@ class GiftController extends TelegramBaseController {
         }
     }
 }
-
 class PingController extends TelegramBaseController {
     /**
      * @param {Scope} $
