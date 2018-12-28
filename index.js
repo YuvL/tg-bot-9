@@ -92,6 +92,7 @@ class PingController extends TelegramBaseController {
     get routes() {
         return {
             'pingCommand': 'pingHandler',
+            'menuCommand': 'menuHandler',
             'formCommand': 'formHandler'
         }
     }
