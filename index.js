@@ -34,6 +34,28 @@ class PingController extends TelegramBaseController {
         $.sendMessage('pong');
     }
 
+    menuHandler($) {
+        $.runMenu({
+            message: 'Select:',
+            options: {
+                parse_mode: 'Markdown' // in options field you can pass some additional data, like parse_mode
+            },
+            'Exit': {
+                message: 'Do you realy want to exit?',
+                resizeKeyboard: true,
+                'yes': () => {
+
+                },
+                'no': () => {
+
+                }
+            },
+            'anyMatch': () => { //will be executed at any other message
+
+            }
+        })
+    }
+
     formHandler($){
         const form = {
             name: {
@@ -78,4 +100,5 @@ class PingController extends TelegramBaseController {
 tg.router
     .when(new TextCommand('start', 'startCommand'), new GiftController())
     .when(new TextCommand('ping', 'pingCommand'), new PingController())
-    .when(new TextCommand('form', 'formCommand'), new PingController());
+    .when(new TextCommand('form', 'formCommand'), new PingController())
+    .when(new TextCommand('menu', 'menuCommand'), new PingController());
