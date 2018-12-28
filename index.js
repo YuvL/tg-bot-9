@@ -1,7 +1,7 @@
 const Telegram = require('telegram-node-bot')
 const TelegramBaseController = Telegram.TelegramBaseController
 const TextCommand = Telegram.TextCommand
-const tg = new Telegram.Telegram('YOUR_TOKEN')
+const tg = new Telegram.Telegram(process.env.tg_api_key)
 
 class PingController extends TelegramBaseController {
     /**
