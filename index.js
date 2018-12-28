@@ -24,5 +24,21 @@ class GiftController extends TelegramBaseController {
     }
 }
 
+class PingController extends TelegramBaseController {
+    /**
+     * @param {Scope} $
+     */
+    pingHandler($) {
+        $.sendMessage('pong')
+    }
+
+    get routes() {
+        return {
+            'pingCommand': 'pingHandler'
+        }
+    }
+}
+
 tg.router
     .when(new TextCommand('start', 'startCommand'),  GiftController())
+    .when(new TextCommand('ping', 'pingCommand'),  PingController());
