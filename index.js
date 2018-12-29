@@ -38,7 +38,7 @@ class GiftController extends TelegramBaseController {
             'anyMatch': () => { //will be executed at any other message
 
             }
-        });
+        }, { reply_markup: JSON.stringify({ remove_keyboard: true })});
     }
 
     get routes() {
