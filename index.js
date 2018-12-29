@@ -12,9 +12,7 @@ class GiftDialog {
 }
 
 class GiftController extends TelegramBaseController {
-    /**
-     * @param {Scope} $
-     */
+
     startHandler($) {
         $.sendMessage( new GiftDialog().getHelloMessage())
     }
@@ -27,16 +25,13 @@ class GiftController extends TelegramBaseController {
 }
 
 class PingController extends TelegramBaseController {
-    /**
-     * @param {Scope} $
-     */
+
     pingHandler($) {
         $.sendMessage('pong');
     }
 
     menuHandler($) {
         $.runMenu({
-            message: 'Select:',
             options: {
                 parse_mode: 'Markdown' // in options field you can pass some additional data, like parse_mode
             },
