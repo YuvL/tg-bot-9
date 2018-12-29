@@ -9,6 +9,10 @@ class GiftDialog {
     getHelloMessage() {
         return process.env._helloMessage;
     }
+
+    happyBDay() {
+        return process.env._happyBDayMessage;
+    }
 }
 
 class GiftController extends TelegramBaseController {
@@ -19,7 +23,7 @@ class GiftController extends TelegramBaseController {
             options: {
                 parse_mode: 'Markdown' // in options field you can pass some additional data, like parse_mode
             },
-            'Покажи':  () => { $.sendMessage('ddd');},
+            'Покажи':  () => { $.sendMessage(new GiftDialog().happyBDay());},
             'anyMatch': () => { //will be executed at any other message
 
             }
