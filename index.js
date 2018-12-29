@@ -27,12 +27,10 @@ class GiftController extends TelegramBaseController {
                 message: new GiftDialog().happyBDay(),
                 resizeKeyboard: true,
                 'Поехать за подарком сейчас': () => {
-                    $.sendLocation(55.744367, 37.565539)
-                    $.sendMessage('Дальше нам нужен павильон ');
-
+                    $.sendLocation(55.744367, 37.565539);
                 },
                 'Поехать завтра': () => {
-                    $.sendMessage('Конечно же сейчас не удобно. Сейчас у тебя праздник! И мы - гости :)');
+                    $.sendMessage('Конечно же завтра!');
                 },
             },
             'anyMatch': () => { //will be executed at any other message
