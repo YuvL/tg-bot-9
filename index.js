@@ -23,7 +23,16 @@ class GiftController extends TelegramBaseController {
             options: {
                 parse_mode: 'Markdown' // in options field you can pass some additional data, like parse_mode
             },
-            'Покажи':  () => { $.sendMessage(new GiftDialog().happyBDay());},
+            'Покажи': {
+                message: new GiftDialog().happyBDay(),
+                resizeKeyboard: true,
+                'Поехать за подарком сейчас': () => {
+                    
+                },
+                'Поехать завтра': () => {
+                    
+                },
+              
             'anyMatch': () => { //will be executed at any other message
 
             }
