@@ -55,45 +55,11 @@ class PingController extends TelegramBaseController {
             }
         })
     }
-
-    formHandler($){
-        const form = {
-            name: {
-                q: 'Send me your name',
-                error: 'sorry, wrong input',
-                validator: (message, callback) => {
-                    if(message.text) {
-                        callback(true, message.text) //you must pass the result also
-                        return
-                    }
-
-                    callback(false)
-                }
-            },
-            age: {
-                q: 'Send me your age',
-                error: 'sorry, wrong input',
-                validator: (message, callback) => {
-                    if(message.text && IsNumeric(message.text)) {
-                        callback(true, toInt(message.text))
-                        return
-                    }
-
-                    callback(false)
-                }
-            }
-        }
-
-        $.runForm(form, (result) => {
-            console.log(result)
-        })
-    }
     
     get routes() {
         return {
             'pingCommand': 'pingHandler',
             'menuCommand': 'menuHandler',
-            'formCommand': 'formHandler'
         }
     }
 }
@@ -101,5 +67,4 @@ class PingController extends TelegramBaseController {
 tg.router
     .when(new TextCommand('start', 'startCommand'), new GiftController())
     .when(new TextCommand('ping', 'pingCommand'), new PingController())
-    .when(new TextCommand('form', 'formCommand'), new PingController())
     .when(new TextCommand('menu', 'menuCommand'), new PingController());
