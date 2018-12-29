@@ -36,20 +36,7 @@ class PingController extends TelegramBaseController {
 
     menuHandler($) {
         $.runMenu({
-            message: 'Select:',
-            options: {
-                parse_mode: 'Markdown' // in options field you can pass some additional data, like parse_mode
-            },
-            'Exit': {
-                message: 'Do you realy want to exit?',
-                resizeKeyboard: true,
-                'yes': () => {
-
-                },
-                'no': () => {
-
-                }
-            },
+            'Exit':  () => $.sendMessage('exiit'),
             'anyMatch': () => { //will be executed at any other message
 
             }
