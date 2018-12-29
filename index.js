@@ -14,7 +14,17 @@ class GiftDialog {
 class GiftController extends TelegramBaseController {
 
     startHandler($) {
-        $.sendMessage( new GiftDialog().getHelloMessage())
+        $.runMenu({
+            message: new GiftDialog().getHelloMessage(),
+            options: {
+                parse_mode: 'Markdown' // in options field you can pass some additional data, like parse_mode
+            },
+            'Покажи':  () => { $.sendMessage('ddd');},
+            'anyMatch': () => { //will be executed at any other message
+
+            }
+            
+        })
     }
 
     get routes() {
