@@ -27,17 +27,17 @@ class GiftController extends TelegramBaseController {
                 message: new GiftDialog().happyBDay(),
                 resizeKeyboard: true,
                 'Поехать за подарком сейчас': () => {
-                    
+
                 },
                 'Поехать завтра': () => {
-                    
+
                 },
-              
+            },
             'anyMatch': () => { //will be executed at any other message
 
             }
             
-        })
+        });
     }
 
     get routes() {
